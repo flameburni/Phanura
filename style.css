@@ -1,0 +1,246 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #0D0D0D;
+  --bg-surface: #161616;
+  --accent: #CCFF00;
+  --text-color: #F4F4F5;
+  --bd-color: #262626;
+  --text-surface: #888888;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: "Inter", sans-serif;
+}
+
+h1, h2, h3, header div, footer div {
+  font-family: "Bebas Neue", sans-serif;
+}
+
+header {
+  display: flex;
+  padding: 10px;
+  row-gap: 10px;
+  column-gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--bd-color);
+  z-index: 10;
+}
+
+header div, footer div {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+ul {
+  display: flex;
+  gap: 15px;
+  list-style: none;
+}
+
+ul a {
+  text-decoration: none;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  gap: 30px;
+  align-items: center;
+  padding: 0 20px;
+  background-image: linear-gradient(rgba(13, 13, 13, 0.2), rgba(13, 13, 13, 0.5)), url("hero.jpg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+#home h1 {
+  font-size: clamp(2rem, 6vw, 4rem);
+}
+
+#home p {
+  max-width: 45ch;
+}
+
+#home a {
+  background-color: var(--accent);
+  color: var(--bg-color);
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#features h2, #features h3 {
+  margin: 20px;
+}
+
+.features-grid {
+  display: grid;
+  gap: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(min(339px, 100%), 1fr));
+}
+
+.features-grid article {
+  background-color: var(--bg-surface);
+  padding: 15px;
+  border-radius: 10px;
+  border-top: 3px solid var(--accent);
+}
+
+.features-grid p {
+  text-align: left;
+}
+
+#testimonials strong, #testimonials small {
+  display: block;
+}
+
+.testimonial-cards {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.testimonial-cards figure {
+  flex: 0 0 78%;
+  background-color: var(--bg-surface);
+  padding: 15px;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  text-align: left;
+  scroll-snap-align: start;
+}
+
+#features, #testimonials, #contact {
+  padding: 70px 30px;
+  text-align: center;
+}
+
+#testimonials h2, #contact h2 {
+  margin: 20px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form textarea {
+  font-family: inherit;
+  resize: none;
+}
+
+.contact-form input, .contact-form select, .contact-form button {
+  font-family: inherit;
+}
+
+.contact-form input, .contact-form select, .contact-form textarea, .contact-form button {
+  background-color: var(--bg-surface);
+  color: var(--text-color);
+  border: 1px solid var(--bd-color);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus {
+  border: 1px solid var(--accent);
+  outline: none;
+}
+
+.contact-form button {
+  background-color: var(--accent);
+  border: none;
+  font-weight: bold;
+  color: var(--bg-color);
+  transition: background-color 0.2s;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-form button:active {
+  background-color: white;
+}
+
+.contact-form input::placeholder, .contact-form textarea::placeholder {
+  color: var(--text-surface);
+}
+
+ul a, #home a, .contact-form button {
+  user-select: none;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  border-top: 1px solid var(--bd-color);
+}
+
+footer small {
+  color: var(--text-surface);
+}
+
+footer address {
+  margin-top: 10px;
+}
+
+footer address p {
+  font-style: normal;
+  color: var(--text-color);
+}
+
+
+footer a {
+  text-decoration: none;
+  color: var(--text-color);
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+footer a:active {
+  color: var(--accent);
+}
+
+
+@media(hover: hover) {
+  .contact-form button:hover {
+    background-color: white;
+  }
+
+  footer a:hover {
+  color: var(--accent);
+  }
+}
+
+@media (min-width: 1200px) {
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 940px) {
+  .testimonial-cards figure {
+    flex: 1 1 54%;
+  }
+}
+ 

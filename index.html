@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Forge your legacy at Phanura. Experience elite personal training, next-gen strength equipment, and 24/7 keyless access. Claim your guest pass today.">
+    <title>Phanura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <header>
+      <div>PHANURA</div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="home">
+        <h1>No Judgements. Just Results.</h1>
+        <p>Welcome to a supportive fitness community built for every body, every fitness level and every goal.</p>
+        <a href="#contact">Join Now</a>
+      </section>
+      <section id="features">
+        <h2>Built For Peak Performance</h2>
+        <div class="features-grid">
+          <article>
+            <h3>Elite Equipment</h3>
+            <p>Train with industry-leading, biometrically optimized strength and conditioning gear designed to maximize every single rep.</p>
+          </article>
+          <article>
+            <h3>Expert Coaching</h3>
+            <p>Skip the guesswork. Work with elite coaches who build custom, data-driven programs tailored entirely to your biology and goals.</p>
+          </article>
+          <article>
+            <h3>24/7 Access</h3>
+            <p>Break a sweat whenever inspiration strikes. Enjoy full, secure keyless entry to our entire premium facility 24 hours a day, 7 days a week.</p>
+          </article>
+          <article>
+            <h3>Luxury Amenities</h3>
+            <p>Recharge your body post-workout with our high-end recovery zones, infrared saunas, and fully stocked pristine locker rooms.</p>
+          </article>
+        </div>
+      </section>
+      <section id="testimonials">
+        <h2>Proven by Our Community</h2>
+        <div class="testimonial-cards">
+           <figure>
+          <blockquote>
+            <p><em>The atmosphere here forces you to level up. The equipment is always pristine, the community is dead serious about fitness, and I've hit PRs I didn't think were possible.</em></p>
+          </blockquote>
+          <figcaption>
+            <strong>Marcus Vance</strong>
+            <small>Personal Training Client &bull; Member for 3 years</small>
+          </figcaption>
+        </figure>
+        <figure>
+          <blockquote>
+            <p><em>Finding a luxury space that actually focuses on raw performance is rare. The 24/7 keyless entry perfectly fits my chaotic schedule, and the recovery amenities are unmatched.</em></p>
+          </blockquote>
+          <figcaption>
+            <strong>Elena Rostova</strong>
+            <small>Unlimited Access &bull; Member for 18 months</small>
+          </figcaption>
+        </figure>
+        <figure>
+          <blockquote>
+            <p><em>I wasted years guessing my workouts before coming here. The data-driven coaching completely changed my trajectory. It's an investment in your health that pays off daily.</em></p>
+          </blockquote>
+          <figcaption>
+            <strong>David Kim</strong>
+            <small>Personal Training Client &bull; Member for 3 years</small>
+          </figcaption>
+        </figure>
+        </div>
+      </section>
+      <section id="contact">
+        <h2>Ready to Build?</h2>
+        <form class="contact-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="John Smith" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="johnsmith@gmail.com" required>
+          <label for="goal">What is your primary focus?</label>
+          <select id="goal" name="goal" required>
+            <option value="" disabled selected hidden>Select your fitness goal...</option>
+            <option value="strength">Build Lean Muscle & Strength</option>
+            <option value="conditioning">Burn Fat & Body Conditioning</option>
+            <option value="athletic">Improve Athletic Performance</option>
+            <option value="mobility">Boost Mobility & Longevity</option>
+            <option value="coaching">Elite Personal Training</option>
+          </select>
+          <label for="message">Your Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Tell us about your fitness background, injuries, or specific goals.." required></textarea>
+          <button type="submit" id="submitBtn">Connect With Phanura</button>
+          <p id="formStatus" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div>PHANURA</div>
+      <p><em>Forge your legacy. Elevate your standard.</em></p>
+      <address>
+        <p>102 Vanguard Boulevard, Suite 400</p>
+        <p>Iron District, NY 10001</p>
+        <p><a href="mailto:info@phanura.com">info@phanura.com</a></p>
+      </address>
+      <small>&copy; <span id="year"></span> Phanura. All rights reserved.</small>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
