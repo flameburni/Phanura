@@ -45,10 +45,9 @@ contactForm.addEventListener("submit", async function(event) {
       formStatus.style.color = "#E63946";
     } else {
       formStatus.textContent = "Verifying network integrity...";
-    }
 
-    try {
-      await fetch("https://1.1.1", {
+      try {
+      await fetch("https://1.1.1.1", {
         method: "HEAD",
         mode: "no-cors",
         cache: "no-store"
@@ -60,6 +59,7 @@ contactForm.addEventListener("submit", async function(event) {
     } catch (pingError) {
       formStatus.textContent = "Couldn't reach the server, check your internet connection and try again.";
       formStatus.style.color = "#E63946"
+      }
     }
   }
 })
