@@ -14,12 +14,19 @@ contactForm.addEventListener("submit", async function(event) {
   formStatus.style.color = "#CCFF00"
   const formObject = Object.fromEntries(new FormData(contactForm));
 
+  let slowConnectionTimer = setTimeout(function() {
+    formStatus.textContent = "Still connecting, this can take up to a minute on first use...";
+  }, 5000);
+
   try {
     const response = await fetch(url, {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify(formObject)
   });
+
+    clearTimeout(slowConnectionTimer);
+    
     const data = await response.json();
     if (response.ok && data.success) {
       formStatus.textContent = data.message;
@@ -29,13 +36,30 @@ contactForm.addEventListener("submit", async function(event) {
       formStatus.style.color = "#E63946";
     }
   } catch (error) {
-    console.log("Phanura server is currently down. Please try again later.")
+    clearTimeout(slowConnectionTimer);
+    
+    console.log("Phanura server is currently down. Please try again later.");
+    
     if (!navigator.onLine) {
       formStatus.textContent = "Network connection lost. Please check your internet connection.";
       formStatus.style.color = "#E63946";
     } else {
-      formStatus.textContent = "Phanura server is currently down. Please try again later.";
+      formStatus.textContent = "Verifying network integrity...";
+    }
+
+    try {
+      await fetch("https://1.1.1", {
+        method: "HEAD",
+        mode: "no-cors",
+        cache: "no-store"
+      });
+
+      formStatus.textContent = "Phanura server is currently down. Please try again later."
       formStatus.style.color = "#E63946";
+      
+    } catch (pingError) {
+      formStatus.textContent = "Couldn't reach the server, check your internet connection and try again.";
+      formStatus.style.color = "#E63946"
     }
   }
 })
