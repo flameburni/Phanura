@@ -46,17 +46,26 @@ contactForm.addEventListener("submit", async function(event) {
     } else {
       formStatus.textContent = "Verifying network integrity...";
 
+      const controller = new AbortController();
+
+      const pingTimeout = setTimeout(function() {
+        controller.abort();
+      }, 1500);
+
       try {
       await fetch("https://1.1.1.1", {
         method: "HEAD",
         mode: "no-cors",
-        cache: "no-store"
+        cache: "no-store",
+        signal: controller.signal
       });
 
+      clearTimeout(pingTimeout); 
       formStatus.textContent = "Phanura server is currently down. Please try again later."
       formStatus.style.color = "#E63946";
       
     } catch (pingError) {
+      clearTimeout(pingTimeout);
       formStatus.textContent = "Couldn't reach the server, check your internet connection and try again.";
       formStatus.style.color = "#E63946"
       }
