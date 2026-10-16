@@ -38,37 +38,7 @@ contactForm.addEventListener("submit", async function(event) {
   } catch (error) {
     clearTimeout(slowConnectionTimer);
     
-    console.log("Phanura server is currently down. Please try again later.");
-    
-    if (!navigator.onLine) {
-      formStatus.textContent = "Network connection lost. Please check your internet connection.";
-      formStatus.style.color = "#E63946";
-    } else {
-      formStatus.textContent = "Verifying network integrity...";
-
-      const controller = new AbortController();
-
-      const pingTimeout = setTimeout(function() {
-        controller.abort();
-      }, 1500);
-
-      try {
-      await fetch("https://1.1.1.1", {
-        method: "HEAD",
-        mode: "no-cors",
-        cache: "no-store",
-        signal: controller.signal
-      });
-
-      clearTimeout(pingTimeout); 
-      formStatus.textContent = "Phanura server is currently down. Please try again later."
-      formStatus.style.color = "#E63946";
-      
-    } catch (pingError) {
-      clearTimeout(pingTimeout);
-      formStatus.textContent = "Couldn't reach the server, check your internet connection and try again.";
-      formStatus.style.color = "#E63946"
-      }
-    }
+    console.log(error);
+    formStatus.textContent = "Couldn't reach the server. Check your internet connection and try again in a moment."
   }
 })
