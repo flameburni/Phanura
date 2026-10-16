@@ -39,7 +39,7 @@ contactForm.addEventListener("submit", async function(event) {
     clearTimeout(slowConnectionTimer);
     
     console.log(error);
-    formStatus.textContent = "Couldn't reach the server. Check your internet connection and try again in a moment."
+    formStatus.textContent = "Couldn't reach the server. Check your internet connection and try again in a moment.";
     formStatus.style.color = "#E63946";
   }
 })
